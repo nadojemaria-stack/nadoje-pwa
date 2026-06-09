@@ -1,0 +1,26 @@
+{
+  "name": "#надожехудожка",
+  "short_name": "надожехудожка",
+  "description": "Школа творческой свободы для взрослых",
+  "start_url": "https://nadojehudozka.ru/personal",
+  "scope": "https://nadojehudozka.ru/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "ru",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://nadojehudozka.ru/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://nadojehudozka.ru/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
