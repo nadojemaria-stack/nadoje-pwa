@@ -42,14 +42,32 @@
       font-size: 16px;
     }
     p { max-width: 320px; line-height: 1.5; font-size: 15px; opacity: 0.7; }
+    #app { display: none; }
   </style>
+  <script>
+    // Если запущено как установленное приложение - сразу на сайт
+    var standalone =
+      window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+    if (standalone) {
+      window.location.replace('https://nadojehudozka.ru');
+    }
+  </script>
 </head>
 <body>
-  <img src="/icon-192.png" alt="надожехудожка">
-  <p>Чтобы установить приложение - нажмите «Поделиться» внизу браузера и выберите «На экран Домой».</p>
-  <a href="https://nadojehudozka.ru">Перейти на сайт</a>
+  <div id="app">
+    <img src="/icon-192.png" alt="надожехудожка">
+    <p>Чтобы установить приложение - нажмите «Поделиться» внизу браузера и выберите «На экран Домой».</p>
+    <a href="https://nadojehudozka.ru">Перейти на сайт</a>
+  </div>
 
   <script>
+    // Показываем подсказку только если НЕ standalone
+    if (!standalone) {
+      document.getElementById('app').style.display = 'flex';
+      document.getElementById('app').style.flexDirection = 'column';
+      document.getElementById('app').style.alignItems = 'center';
+    }
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js').catch(function(){});
     }
