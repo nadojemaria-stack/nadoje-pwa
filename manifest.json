@@ -2,7 +2,7 @@
   "name": "#надожехудожка",
   "short_name": "надожехудожка",
   "description": "Школа творческой свободы для взрослых",
-  "start_url": "https://nadojehudozka.ru/personal",
+  "start_url": "https://nadojehudozka.ru",
   "scope": "https://nadojehudozka.ru/",
   "display": "standalone",
   "orientation": "portrait",
