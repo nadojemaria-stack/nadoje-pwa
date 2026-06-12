@@ -1,26 +1,58 @@
-{
-  "name": "#надожехудожка",
-  "short_name": "надожехудожка",
-  "description": "Школа творческой свободы для взрослых",
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "orientation": "portrait",
-  "lang": "ru",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-  "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>#надожехудожка</title>
+
+  <link rel="manifest" href="/manifest.json">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="надожехудожка">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="icon" type="image/png" href="/icon-192.png">
+
+  <meta name="theme-color" content="#ffffff">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      font-family: -apple-system, sans-serif;
+      color: #1a1a1a;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
     }
-  ]
-}
+    img { width: 96px; height: 96px; border-radius: 18px; margin-bottom: 24px; }
+    a {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 28px;
+      background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+    p { max-width: 320px; line-height: 1.5; font-size: 15px; opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <img src="/icon-192.png" alt="надожехудожка">
+  <p>Чтобы установить приложение - нажмите «Поделиться» внизу браузера и выберите «На экран Домой».</p>
+  <a href="https://nadojehudozka.ru">Перейти на сайт</a>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').catch(function(){});
+    }
+  </script>
+</body>
+</html>
