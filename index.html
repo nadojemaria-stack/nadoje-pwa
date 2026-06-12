@@ -5,51 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>#надожехудожка</title>
 
-  <!-- PWA manifest — лежит рядом на том же поддомене -->
   <link rel="manifest" href="/manifest.json">
 
-  <!-- iOS поддержка -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="надожехудожка">
   <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="icon" type="image/png" href="/icon-192.png">
 
-  <!-- Theme color для Android Chrome -->
   <meta name="theme-color" content="#ffffff">
 
   <style>
     body {
       margin: 0;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
       background: #fff;
-      font-family: sans-serif;
-      color: #333;
+      font-family: -apple-system, sans-serif;
+      color: #1a1a1a;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
     }
-    p { text-align: center; opacity: 0.5; font-size: 14px; }
+    img { width: 96px; height: 96px; border-radius: 18px; margin-bottom: 24px; }
+    a {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 28px;
+      background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+    p { max-width: 320px; line-height: 1.5; font-size: 15px; opacity: 0.7; }
   </style>
 </head>
 <body>
-  <p>Загрузка...</p>
+  <img src="/icon-192.png" alt="надожехудожка">
+  <p>Чтобы установить приложение - нажмите «Поделиться» внизу браузера и выберите «На экран Домой».</p>
+  <a href="https://nadojehudozka.ru">Перейти на сайт</a>
 
   <script>
-    // Регистрируем Service Worker (он лежит на том же поддомене)
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(() => {
-          // SW зарегистрирован — редиректим на основной сайт
-          window.location.replace('https://nadojehudozka.ru/personal');
-        })
-        .catch((err) => {
-          // Даже если SW не встал — всё равно редиректим
-          console.warn('SW registration failed:', err);
-          window.location.replace('https://nadojehudozka.ru/personal');
-        });
-    } else {
-      // Браузер без SW — просто редирект
-      window.location.replace('https://nadojehudozka.ru/personal');
+      navigator.serviceWorker.register('/service-worker.js').catch(function(){});
     }
   </script>
 </body>
